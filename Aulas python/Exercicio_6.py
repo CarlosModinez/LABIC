@@ -2,7 +2,6 @@ def verifica_primo(numero):
     # Divido o numero por dois para diminuir a quantidade de 
     # operacoes. Isso não afeta o resultado, já que o maior 
     # divisor poissivel difernte do proprio numero é o numero/2
-    
     if numero <= 1:
         return False
 
@@ -16,5 +15,6 @@ num = int(input("Numero inteiro: "))
 
 if verifica_primo(num):
     print("Numero %d é primo" % num)
-        
+else:
+    print("Numero %d não é primo" % num)
     

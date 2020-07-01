@@ -6,11 +6,11 @@ def imprimir_taxas():
     opcao = int(input())
     if opcao == 1:
         apresentar_menu()
-
     elif opcao == 0:
         return
     else:
         print("Opcao invalida")
+
 
 def informar_horas_estacionada():
     placa = input("Placa: ")
@@ -33,7 +33,8 @@ def informar_horas_estacionada():
         return
     else:
         print("Opcao invalida")
-    
+
+
 def consultar_valor_recebido():
     print("Valor no caixa: %.2f" % valor_no_caixa)
 
@@ -42,11 +43,11 @@ def consultar_valor_recebido():
     opcao = int(input())
     if opcao == 1:
         apresentar_menu()
-
     elif opcao == 0:
         return
     else:
         print("Opcao invalida")
+
 
 def apresentar_menu():
     print("Menu")
@@ -84,5 +85,3 @@ carros_estacionados = {"RSG4520": "12:52:50",
 
 valor_no_caixa = 100.52
 apresentar_menu()
-
-

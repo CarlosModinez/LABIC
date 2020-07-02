@@ -1,3 +1,4 @@
+#Opcao 1 no menu
 def imprimir_taxas():
     print("O estacionamento cobra R$2,00 pela entrada + R$0,50 por hora \nsendo o valor máximo para um periodo de 24h R$10,00")
     print ("\n1 - para voltar para o menu")
@@ -11,18 +12,21 @@ def imprimir_taxas():
     else:
         print("Opcao invalida")
 
-
+#opcao 2 do menu
 def informar_horas_estacionada():
     placa = input("Placa: ")
     if placa in carros_estacionados.keys():
-        print("Periodo estacionado: %s" % carros_estacionados[placa])
+        print("Carro já cadastrado")
     else:
-        print("placa invalida")
-    
-    print ("\n1 - para voltar para o menu")
-    print("2 - tentar novamente")
-    print ("0 - para sair")
+        horas = input("Tempo no esetacionamento(horas:minutos): ")
+        carros_estacionados[placa] = horas
+        print("Carro cadastrado com sucesso")
 
+
+    print("\n1 - para voltar para o menu")
+    print("2 - Cadastrar novo veiculo")
+    print("0 - para sair")
+    
 
     opcao = int(input())
     if opcao == 1:
@@ -34,12 +38,23 @@ def informar_horas_estacionada():
     else:
         print("Opcao invalida")
 
-
+#Opcao 3 do menu
 def consultar_valor_recebido():
-    print("Valor no caixa: %.2f" % valor_no_caixa)
+    valor_total = 0
+    for placa in carros_estacionados:
+        valor_total += 2
+        tempo = carros_estacionados[placa].split(sep=":")
+        minutos = int(tempo[1])
+        horas = int(tempo[0])
+        if minutos > 0:
+            horas += 1
+        valor_total += 0.5 * horas
+        
+    print("Valor recebido até o momento: R$%.2f" % valor_total)
+    print("\n1 - para voltar para o menu")
+    print("0 - para sair")
+    
 
-    print ("\n1 - para voltar para o menu")
-    print ("0 - para sair")
     opcao = int(input())
     if opcao == 1:
         apresentar_menu()
@@ -76,12 +91,7 @@ def apresentar_menu():
 
 
 #alguns dados fictícios
-carros_estacionados = {"RSG4520": "12:52:50",
-                       "AHG8520": "5:05:50",
-                       "GSD4568": "9:12:50",
-                       "LDM4582": "12:32:50",
-                       "FJR2684": "1:11:50",
-                       "FJR4820": "4:15:50"}
-
-valor_no_caixa = 100.52
+carros_estacionados = {"DSD8526": "23:35",
+                       "GDS8975": "12:58",
+                       "FJD5685": "12:00"}
 apresentar_menu()

@@ -1,0 +1,6 @@
+imagens/Zombie244.jpg, classe
+imagens/Zombie095.jpg, classe
+imagens/Zombie055.jpg, classe
+imagens/Human266.jpg, classe
+imagens/Zombie146.jpg, classe
+imagens/Human347.jpg, classe

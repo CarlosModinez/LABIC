@@ -5,8 +5,12 @@ def redimensionar_imagens_e_salvar(dir_imagens_originais, dir_imagens_redimensio
     fi.criar_diretorio_de_saida(dir_imagens_redimensionadas)
     imagens_redimensionadas = []
     for imagem in imagens:
-        imagens_redimensionadas.append(fi.redimensionar_imagem('imagens/'+imagem, nova_dimensao, tamanho_minimo))
-        fi.salvar_imagem_redimensionada(imagem, imagens_redimensionadas[-1], dir_imagens_redimensionadas)
-
+        try:
+            nova_imagem = fi.redimensionar_imagem('imagens/'+imagem, nova_dimensao, tamanho_minimo)
+            imagens_redimensionadas.append(nova_imagem)
+            fi.salvar_imagem_redimensionada(imagem, imagens_redimensionadas[-1], dir_imagens_redimensionadas)
+        except KeyError:
+            print("Imagem nao tem tamanho minimo para ser redimensionada")
     
+
 redimensionar_imagens_e_salvar('imagens', 'imagens_redimensionadas', (150, 200), 200)

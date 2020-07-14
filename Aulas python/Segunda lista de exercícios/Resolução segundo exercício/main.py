@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 import csv
 import numpy as np
 
-def plot_single_line(csv_file, x_feature, y_feature):
+def get_features_from_csv(csv_file, x_feature, y_feature):
     clothes_data = open(csv_file)
     data = csv.reader(clothes_data, delimiter=',', quotechar='"')
     titles = next(data)
@@ -31,7 +31,7 @@ def plot_single_line(csv_file, x_feature, y_feature):
 
 
 # plot do lucro das vendas
-x_label, y_label, x_vector, y_vector = plot_single_line('clothes_data.csv', 'month', 'total_profit')
+x_label, y_label, x_vector, y_vector = get_features_from_csv('clothes_data.csv', 'month', 'total_profit')
 plt.plot(x_vector, y_vector)
 plt.xlabel(x_label)
 plt.ylabel(y_label)
@@ -39,22 +39,22 @@ plt.show()
 
 
 # plot de todos os produtos
-_, pants_legend, x_pants, y_pants = plot_single_line('clothes_data.csv', 'month', 'pants')
+_, pants_legend, x_pants, y_pants = get_features_from_csv('clothes_data.csv', 'month', 'pants')
 plt.plot(x_pants, y_pants, label = pants_legend) 
 
-_, skirt_legend, x_skirt, y_skirt = plot_single_line('clothes_data.csv', 'month', 'skirt')
+_, skirt_legend, x_skirt, y_skirt = get_features_from_csv('clothes_data.csv', 'month', 'skirt')
 plt.plot(x_skirt, y_skirt, label = skirt_legend)
 
-_, coat_legend, x_coat, y_coat = plot_single_line('clothes_data.csv', 'month', 'coat')
+_, coat_legend, x_coat, y_coat = get_features_from_csv('clothes_data.csv', 'month', 'coat')
 plt.plot(x_coat, y_coat, label = coat_legend)
 
-_, jersey_legend, x_jersey, y_jersey = plot_single_line('clothes_data.csv', 'month', 'jersey')
+_, jersey_legend, x_jersey, y_jersey = get_features_from_csv('clothes_data.csv', 'month', 'jersey')
 plt.plot(x_jersey, y_jersey, label = jersey_legend)
 
-_, hoodie_legend, x_hoodie, y_hoodie = plot_single_line('clothes_data.csv', 'month', 'hoodie')
+_, hoodie_legend, x_hoodie, y_hoodie = get_features_from_csv('clothes_data.csv', 'month', 'hoodie')
 plt.plot(x_hoodie, y_hoodie, label = hoodie_legend)
 
-_, skarf_legend, x_scarf, y_scarf = plot_single_line('clothes_data.csv', 'month', 'scarf')
+_, skarf_legend, x_scarf, y_scarf = get_features_from_csv('clothes_data.csv', 'month', 'scarf')
 plt.plot(x_scarf, y_scarf, label = skarf_legend)
 
 plt.xlabel('months')

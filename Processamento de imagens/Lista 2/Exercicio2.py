@@ -11,7 +11,7 @@ resized_cat = cv2.resize(cat, new_size)
 
 mascara = np.zeros(resized_cat.shape[:2], dtype = "uint8")
 cv2.rectangle(mascara, (60, 30), (tv.shape[1]-30, tv.shape[0]-30), 255, -1)
-#Qual a diferenca desse com o de cima? 
+#Qua a diferenca desse com o de cima? 
 #mascara[30:tv.shape[0]-30, 60:tv.shape[1]-30] = 255
 
 cat_mask = cv2.bitwise_and(resized_cat, resized_cat, mask=mascara)
